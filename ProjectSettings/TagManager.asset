@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - SimpleCollectible
+  - Target
+  - Bullet
+  - Reload Zone
   layers:
   - Default
   - TransparentFX
