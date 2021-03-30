@@ -1,6 +1,3 @@
-using System;
-using UniRx;
-using UniRx.Triggers;
 using UnityEngine;
 
 namespace Only1PercentGames.TestAssignment

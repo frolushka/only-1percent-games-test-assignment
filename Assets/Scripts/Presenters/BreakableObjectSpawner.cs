@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Only1PercentGames.TestAssignment.Presenters
 {
-    public class BreakableObjectPresenter : MonoBehaviour
+    public class BreakableObjectSpawner : MonoBehaviour
     {
         public IObserver<Unit> Spawn => _spawn;
         private Subject<Unit> _spawn = new Subject<Unit>();

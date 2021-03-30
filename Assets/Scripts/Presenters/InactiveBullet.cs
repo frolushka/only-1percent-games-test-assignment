@@ -12,22 +12,24 @@ namespace Only1PercentGames.TestAssignment.Presenters
 
         private Rigidbody _rb;
         private Vector3 _defaultPosition;
-        
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
+
             _defaultPosition = _rb.position;
-            
-            gameObject.OnMouseDownAsObservable()
+
+            var observable = gameObject.OnMouseDownAsObservable()
                 .SelectMany(_ => gameObject.UpdateAsObservable())
                 .TakeUntil(gameObject.OnMouseUpAsObservable())
                 .Select(_ => Input.mousePosition)
                 .RepeatSafe()
-                .Subscribe(x =>
+                .Select(x => Camera.main.ScreenPointToRay(x));
+            observable
+                .Subscribe(ray =>
                 {
-                    var ray = Camera.main.ScreenPointToRay(x);
-                    // TODO
-                    var point = ray.GetPoint(5);
+                    const float distanceFromCamera = 5;
+                    var point = ray.GetPoint(distanceFromCamera);
                     _rb.MovePosition(point);
                 })
                 .AddTo(this);
@@ -36,6 +38,7 @@ namespace Only1PercentGames.TestAssignment.Presenters
                 .Subscribe(_ => _rb.MovePosition(_defaultPosition))
                 .AddTo(this);
 
+            // TODO add smart reload algo, replace this logic to reloader
             gameObject.OnTriggerEnterAsObservable()
                 .Where(collider => collider.CompareTag("Reload Zone"))
                 .Subscribe(collider =>

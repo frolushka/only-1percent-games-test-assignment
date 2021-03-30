@@ -6,21 +6,17 @@ namespace Only1PercentGames.TestAssignment.Presenters
 {
     public class Cannon : MonoBehaviour
     {
-        // TODO
         public IObserver<GameObject> Load => _load;
         private Subject<GameObject> _load = new Subject<GameObject>();
 
-        // TODO
         public IObserver<float> Shoot => _shoot;
         private Subject<float> _shoot = new Subject<float>();
 
         private Subject<float> _onShot = new Subject<float>();
         
-        // TODO
         public IObservable<Unit> OnHit => _onHit;
         private Subject<Unit> _onHit = new Subject<Unit>();
 
-        // TODO
         public IObservable<Unit> OnMiss => _onMiss;
         private Subject<Unit> _onMiss = new Subject<Unit>();
 

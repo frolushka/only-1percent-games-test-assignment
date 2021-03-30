@@ -1,16 +1,14 @@
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 namespace Only1PercentGames.TestAssignment.Presenters
 {
-    public class LevelPresenter : MonoBehaviour
+    public class Level : MonoBehaviour
     {
         [SerializeField] private Cannon cannon;
         [SerializeField] private PowerChoice powerChoice;
-        [SerializeField] private BreakableObjectPresenter breakableObjectPresenter;
+        [SerializeField] private BreakableObjectSpawner breakableObjectSpawner;
         [SerializeField] private CannonReloader cannonReloader;
         [SerializeField] private CameraPresenter cameraPresenter;
         [Space]
@@ -65,12 +63,17 @@ namespace Only1PercentGames.TestAssignment.Presenters
             
             var start = new ReactiveCommand();
             start
-                .Subscribe(breakableObjectPresenter.Spawn)
+                .Subscribe(breakableObjectSpawner.Spawn)
                 .AddTo(this);
             start
                 .Subscribe(_ => cannonReloader.SpawnBullets(bulletViewPrefab, bulletsCount))
                 .AddTo(this);
             start.Execute();
+        }
+
+        public void Restart()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

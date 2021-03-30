@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 
@@ -8,11 +6,9 @@ namespace Only1PercentGames.TestAssignment
 {
     public class CannonView : MonoBehaviour
     {
-        // TODO
         public IObserver<Unit> Shoot => _shoot;
         private Subject<Unit> _shoot = new Subject<Unit>();
         
-        // TODO
         public IObservable<Unit> OnShot => _onShot;
         private Subject<Unit> _onShot = new Subject<Unit>();
         
@@ -25,7 +21,10 @@ namespace Only1PercentGames.TestAssignment
                 .AddTo(this);
         }
 
-        public void OnShotHandler()
+        /// <summary>
+        /// Animation event
+        /// </summary>
+        private void OnShotHandler()
         {
             _onShot.OnNext(default);
         }

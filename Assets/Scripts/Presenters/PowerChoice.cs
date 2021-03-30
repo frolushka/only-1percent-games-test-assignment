@@ -9,11 +9,9 @@ namespace Only1PercentGames.TestAssignment.Presenters
 {
     public class PowerChoice : MonoBehaviour
     {
-        // TODO
         public IObserver<Unit> StartChoosing => _startChoosing;
         private Subject<Unit> _startChoosing = new Subject<Unit>();
         
-        // TODO
         public IObservable<float> OnPowerChoosen => _onPowerChoosen;
         private Subject<float> _onPowerChoosen = new Subject<float>();
 

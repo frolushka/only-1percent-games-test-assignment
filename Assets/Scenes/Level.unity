@@ -521,28 +521,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1014357107 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7982182544092254801, guid: 80d1e89864db0497a99f7d14a80a727b, type: 3}
-  m_PrefabInstance: {fileID: 1909748639042715161}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1053380163 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 973703345867645076, guid: 7848fc45d518b47f68aa03473bdd65b9, type: 3}
-  m_PrefabInstance: {fileID: 4385153804542041390}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1064470724
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannon: {fileID: 1238933320}
   powerChoice: {fileID: 1238933321}
-  breakableObjectPresenter: {fileID: 1238933322}
+  breakableObjectSpawner: {fileID: 1238933322}
   cannonReloader: {fileID: 1238933325}
   cameraPresenter: {fileID: 1238933318}
   victoryScreenPresenter: {fileID: 1238933323}
@@ -918,7 +896,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenObject: {fileID: 1201435578}
-  restartButton: {fileID: 1014357107}
 --- !u!114 &1238933324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -932,7 +909,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenObject: {fileID: 1674059608}
-  restartButton: {fileID: 1053380163}
 --- !u!114 &1238933325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,7 +1107,6 @@ GameObject:
   - component: {fileID: 1644520211}
   - component: {fileID: 1644520214}
   - component: {fileID: 1644520213}
-  - component: {fileID: 1644520212}
   m_Layer: 0
   m_Name: Cannon Stand
   m_TagString: Untagged
@@ -1153,19 +1128,6 @@ Transform:
   m_Father: {fileID: 1238933317}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1644520212
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1644520210}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1644520213
 MeshRenderer:
   m_ObjectHideFlags: 0
