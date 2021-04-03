@@ -21,8 +21,12 @@ namespace Only1PercentGames.TestAssignment.Presenters
         private CompositeDisposable _disposables;
         private ReactiveProperty<float> _powerValue = new ReactiveProperty<float>();
 
+        private InputObservableContext _context;
+        
         private void Awake()
         {
+            _context = this.DefaultInputContext();
+            
             gameObject.OnDestroyAsObservable()
                 .Subscribe(_ => _disposables?.Dispose());
 
@@ -47,7 +51,7 @@ namespace Only1PercentGames.TestAssignment.Presenters
                         .Subscribe(value => powerSlider.value = value)
                         .AddTo(_disposables);
 
-                    new MouseInputContext(this, null).GetObservable(0)
+                    _context.GetObservable(0)
                         .OnBegin
                         .Subscribe(_ => _onPowerChoosen.OnNext(TransformPowerValue(_powerValue.Value)))
                         .AddTo(_disposables);

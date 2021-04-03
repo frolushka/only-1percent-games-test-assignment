@@ -128,7 +128,7 @@ namespace UniRx.Triggers
 
         #endregion
 
-#if !(UNITY_IPHONE || UNITY_ANDROID || UNITY_METRO)
+// #if !(UNITY_IPHONE || UNITY_ANDROID || UNITY_METRO)
 
         #region ObservableMouseTrigger
 
@@ -183,7 +183,7 @@ namespace UniRx.Triggers
 
         #endregion
 
-#endif
+// #endif
 
         #region ObservableTrigger2DTrigger
 
